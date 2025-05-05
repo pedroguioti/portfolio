@@ -1,7 +1,7 @@
-# 📊 Pedro Guioti — Portfolio
+# 📊 Pedro Guioti — Portfólio
 
-Bem-vindo ao meu portfólio!  
-Aqui você encontra alguns dos projetos que desenvolvi como Estatístico e Cientista de Dados, com foco em análise de dados, visualização e soluções baseadas em evidências.
+Bem-vindo ao meu portfólio =)
+Aqui você encontra alguns dos projetos que desenvolvi como estudante de Estatística, com foco em análise de dados, visualização e soluções baseadas em evidências.
 
 🌐 **Acesse o site:**  
 [https://pedroguioti.github.io/portfolio](https://pedroguioti.github.io/portfolio)
@@ -23,8 +23,6 @@ Aqui você encontra alguns dos projetos que desenvolvi como Estatístico e Cient
 ## 📫 Contato
 
 - **Email**: pedroguioti@gmail.com  
-- **LinkedIn**: [[linkedin](https://www.linkedin.com/in/pguioti/)](#)
+- **LinkedIn**: [[linkedin](https://www.linkedin.com/in/pguioti/)]
 
 ---
-
-> Desenvolvido com ❤️ e Tailwind CSS.
