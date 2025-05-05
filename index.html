@@ -1,91 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio de Projetos - Pedro Contardi</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #002b45;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #014f86;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .project {
-      background: white;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .project h2 {
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #002b45;
-      color: white;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-  </style>
+  <title>Pedro Guioti Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Pedro A. G. Contardi</h1>
-    <p>Portfólio de Projetos de Estatística</p>
-  </header>
+<body class="bg-gray-100 text-gray-800 font-sans">
 
-  <nav>
-    <a href="#projetos">Projetos</a>
-    <a href="Bioequivalencia - Rmarkdown/bioeq.html">Bioequivalência</a>
+  <!-- Navbar -->
+  <nav class="bg-white shadow fixed w-full top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">Pedro Guioti</h1>
+      <div class="space-x-6">
+        <a href="#projects" class="text-gray-600 hover:text-blue-600">Projects</a>
+        <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <div class="container">
-    <section id="projetos">
-      <h2>Meus Projetos</h2>
+  <!-- Hero Section -->
+  <section class="h-screen flex items-center justify-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Pedro Guioti</h2>
+      <p class="text-lg md:text-xl mb-6">Statistician & Data Scientist</p>
+      <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">View My Work</a>
+    </div>
+  </section>
 
-      <div class="project">
-        <h3>Bioequivalência Farmacêutica</h3>
-        <p>Análise de bioequivalência utilizando parâmetros farmacocinéticos.</p>
-        <a href="Bioequivalencia - Rmarkdown/bioeq.html" target="_blank">Ver projeto</a>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto py-16 px-4">
+    <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">Projects</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold mb-2">Project 1</h4>
+        <p class="text-gray-600 mb-4">Description of project 1. Highlight insights and outcomes here.</p>
+        <a href="#" class="text-blue-600 hover:underline">View project →</a>
       </div>
 
-      <!-- Adicione mais projetos aqui -->
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold mb-2">Project 2</h4>
+        <p class="text-gray-600 mb-4">Description of project 2. Focus on data-driven impact.</p>
+        <a href="#" class="text-blue-600 hover:underline">View project →</a>
+      </div>
 
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <footer>
-    &copy; 2025, Pedro Augusto Guioti Contardi. Todos os direitos reservados.
+  <!-- Contact Section -->
+  <section id="contact" class="bg-blue-600 text-white py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
+      <p class="mb-6 text-lg">Interested in working together? Reach out to me!</p>
+      <a href="mailto:your.email@example.com" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Email Me</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+    © 2025 Pedro Guioti. All rights reserved.
   </footer>
+
 </body>
 </html>
