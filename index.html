@@ -1,78 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Pedro Guioti Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>Pedro Guioti — Portfólio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Fontes retrô -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1720;
+      --primary:#00f5d4;
+      --secondary:#ff4d6d;
+      --accent:#ffd166;
+      --text:#d7f9ff;
+      --muted:#87a3a9;
+      --grid:#15202b;
+    }
+    html,body{height:100%}
+    body{
+      background: radial-gradient(1200px 600px at 50% -10%, #10202a 0%, var(--bg) 60%) fixed;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    /* grade "tron" no fundo */
+    .grid-bg:before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; opacity:.15;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px) 0 0/24px 24px,
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 24px;
+      mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,1) 0%, rgba(0,0,0,.75) 45%, rgba(0,0,0,0) 80%);
+      z-index:-1;
+    }
+    /* efeito CRT leve */
+    .crt:after{
+      content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:soft-light;
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 2px, rgba(0,0,0,.02) 2px 4px);
+    }
+    /* glow de neon */
+    .neon{ text-shadow: 0 0 6px var(--primary), 0 0 16px var(--primary);}
+    .neon-sec{ text-shadow: 0 0 6px var(--secondary), 0 0 16px var(--secondary);}
+    /* borda pixel/8-bit */
+    .pixel-border{ box-shadow:
+        0 0 0 2px var(--primary),
+        0 0 24px rgba(0,245,212,.25),
+        inset 0 0 0 2px rgba(0,245,212,.15);
+      border-radius: 6px;
+      background: linear-gradient(180deg, #0e141c 0%, #0a0f15 100%);
+    }
+    /* botões retro */
+    .btn{
+      border:2px solid var(--primary); color:var(--primary);
+      padding:.85rem 1.1rem; font-weight:700; letter-spacing:.02em;
+      box-shadow: 0 0 12px rgba(0,245,212,.25);
+      transition: all .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px) scale(1.01); box-shadow: 0 0 20px rgba(0,245,212,.45); }
+    .btn-alt{
+      border:2px solid var(--secondary); color:var(--secondary);
+      box-shadow: 0 0 12px rgba(255,77,109,.25);
+    }
+    /* navbar vidro */
+    .glass{
+      background: rgba(10,16,22,.6); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(135,163,169,.18);
+    }
+    /* links */
+    a{ color: var(--accent); }
+    a:hover{ color: #ffe08a; text-shadow: 0 0 8px rgba(255,209,102,.35); }
+    /* tipografia */
+    .title{ font-family: "Press Start 2P", system-ui, monospace; }
+    .mono{ font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.25rem; }
+    /* chips/categorias */
+    .chip{
+      border:1px solid rgba(135,163,169,.35);
+      background: rgba(20,29,39,.6);
+      padding:.25rem .55rem; border-radius: 9999px; color:#a6c6cc;
+    }
+    /* avatar com moldura neon */
+    .avatar{
+      border:3px solid var(--secondary);
+      box-shadow: 0 0 14px rgba(255,77,109,.4), inset 0 0 8px rgba(255,77,109,.25);
+    }
+    /* footer linhas varrendo */
+    .scanline{
+      background: repeating-linear-gradient(180deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="grid-bg crt">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow fixed w-full top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">Pedro A. G. Contardi</h1>
-      <div class="space-x-6">
-        <a href="#portfolio" class="text-gray-600 hover:text-blue-600">Projects</a>
-        <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+  <!-- NAVBAR -->
+  <nav class="glass fixed w-full top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="title text-sm sm:text-base text-[var(--primary)] tracking-tight">
+        PEDRO A. G. CONTARDI
+      </h1>
+      <div class="flex items-center gap-6 mono">
+        <a href="#portfolio" class="text-[var(--muted)] hover:text-[var(--primary)]">/projetos</a>
+        <a href="#contact" class="text-[var(--muted)] hover:text-[var(--primary)]">/contato</a>
+        <a href="https://github.com/pedroguioti" target="_blank" class="text-[var(--muted)] hover:text-[var(--primary)]">/github</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section (reduzida) -->
-  <section class="flex items-center justify-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24">
-    <div>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Hi, I'm Pedro Guioti</h2>
-      <p class="text-lg md:text-xl mb-6">Statistician & Data Scientist</p>
-      <a href="#portfolio" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">View My Work</a>
-    </div>
-  </section>
+  <!-- HERO -->
+  <header class="pt-28">
+    <section class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="title text-3xl sm:text-4xl md:text-5xl neon">
+        Olá, eu sou o Pedro
+      </h2>
+      <p class="mono mt-4 text-[var(--muted)]">
+        Estatístico & Data Scientist — CEP, Amostragem, Modelagem e Otimização
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <a href="#portfolio" class="btn">Ver Projetos</a>
+        <a href="#contact" class="btn btn-alt">Fale Comigo</a>
+      </div>
+    </section>
+  </header>
 
-  <!-- Portfolio Section (Projects + About Me) -->
-  <section id="portfolio" class="max-w-6xl mx-auto py-16 px-4 mt-24">
+  <!-- SEÇÃO PORTFÓLIO -->
+  <main id="portfolio" class="max-w-6xl mx-auto px-4 py-16">
     <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- Projects (Esquerda) -->
-      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-xl text-white shadow-lg">
-        <h3 class="text-2xl font-bold mb-4">Projetos</h3>
-        <p class="text-lg font-semibold mb-2">Temas:</p>
-        <ul class="list-disc list-inside space-y-2 text-base">
-          <li><a href="Bioequivalencia - Rmarkdown/bioeq.html" class="underline hover:text-gray-300">Machine Learning — Bioequivalência</a></li>
-          <li><a href="https://rpubs.com/pedro_contardi/analise-descritiva" class="underline hover:text-gray-300">Análise Descritiva — RMarkdown Report</a></li>
-          <li><a href="https://pedrocontardi.shinyapps.io/np-testes/" class="underline hover:text-gray-300">Testes Não Paramétricos — App Shiny</a></li>
+      <!-- Projetos -->
+      <section class="pixel-border p-6">
+        <div class="flex items-center justify-between">
+          <h3 class="title text-xl neon">PROJETOS</h3>
+          <div class="hidden md:flex gap-2">
+            <span class="chip">R</span><span class="chip">Python</span><span class="chip">BI</span>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-5">
+          <li class="mono">
+            <span class="text-[var(--accent)]">▸</span>
+            <a href="Bioequivalencia - Rmarkdown/bioeq.html" class="underline">
+              Machine Learning — Bioequivalência
+            </a>
+          </li>
+          <li class="mono">
+            <span class="text-[var(--accent)]">▸</span>
+            <a href="https://rpubs.com/pedro_contardi/analise-descritiva" class="underline" target="_blank" rel="noopener">
+              Análise Descritiva — RMarkdown Report
+            </a>
+          </li>
+          <li class="mono">
+            <span class="text-[var(--accent)]">▸</span>
+            <a href="https://pedrocontardi.shinyapps.io/np-testes/" class="underline" target="_blank" rel="noopener">
+              Testes Não Paramétricos — App Shiny
+            </a>
+          </li>
         </ul>
-      </div>
 
-      <!-- About Me (Direita) -->
-      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-xl text-white shadow-lg flex flex-col md:flex-row md:items-center md:justify-between">
-        <div>
-          <h3 class="text-2xl font-bold mb-4">About Me</h3>
-          <ul class="list-disc list-inside space-y-2 text-base">
-            <li><a href="https://www.linkedin.com/in/pedroguioti/" class="underline hover:text-gray-300">Estatístico Sênior — LinkedIn</a></li>
-            <li><a href="https://github.com/pedroguioti" class="underline hover:text-gray-300">Projetos Farmacocinética — GitHub</a></li>
-            <li><a href="https://rpubs.com/pedro_contardi" class="underline hover:text-gray-300">Especialista em R, Python, SQL — Publicações</a></li>
+        <!-- Dicas rápidas em estilo console -->
+        <div class="mt-8 mono text-sm text-[var(--muted)]">
+          <div>> _status: <span class="text-[var(--primary)]">online</span></div>
+          <div>> _build: GitHub Pages (Actions)</div>
+          <div>> _stack: R | Python | Quarto/HTML</div>
+        </div>
+      </section>
+
+      <!-- Sobre -->
+      <section class="pixel-border p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+        <div class="md:max-w-[65%]">
+          <h3 class="title text-xl neon-sec">SOBRE</h3>
+          <p class="mono mt-4 text-[var(--muted)]">
+            Estatístico Sênior focado em análises aplicadas (produção, vendas e P&D).
+            Experiência em CEP (X-MR, EWMA), amostragem de aceitação (OC/AOQ) e modelagem
+            (regressão/GBM). Curto soluções reprodutíveis e métricas com IC.
+          </p>
+          <ul class="mono mt-4 space-y-2">
+            <li><a class="underline" href="https://www.linkedin.com/in/pedroguioti/" target="_blank">LinkedIn</a></li>
+            <li><a class="underline" href="https://github.com/pedroguioti" target="_blank">GitHub</a></li>
+            <li><a class="underline" href="https://rpubs.com/pedro_contardi" target="_blank">Publicações</a></li>
           </ul>
         </div>
-        <div class="mt-6 md:mt-0 md:ml-6 flex justify-center">
-          <img src="sua-foto.jpg" alt="Foto de Pedro" class="w-32 h-32 rounded-full border-4 border-white shadow-lg">
+        <div class="mt-6 md:mt-0">
+          <img src="sua-foto.jpg" alt="Foto de Pedro" class="w-32 h-32 rounded-md avatar object-cover">
         </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- CONTATO -->
+  <section id="contact" class="py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center pixel-border p-10">
+      <h3 class="title text-xl neon">/CONTATO</h3>
+      <p class="mono mt-3 text-[var(--muted)]">
+        Quer trocar uma ideia ou trabalhar comigo?
+      </p>
+      <div class="mt-7 flex justify-center gap-4">
+        <a href="mailto:pedroguioti@gmail.com" class="btn">Email</a>
+        <a href="https://www.linkedin.com/in/pedroguioti/" target="_blank" class="btn btn-alt">LinkedIn</a>
       </div>
-
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-blue-600 text-white py-16">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
-      <p class="mb-6 text-lg">Interested in working together? Reach out to me!</p>
-      <a href="mailto:pedroguioti@gmail.com" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Email Me</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
-    © 2025 Pedro Guioti. All rights reserved.
+  <!-- FOOTER -->
+  <footer class="scanline text-center text-xs text-[var(--muted)] py-6">
+    © 2025 Pedro Guioti. build: <span class="text-[var(--primary)]">gh-pages</span> • theme: <span class="text-[var(--secondary)]">retro-crt</span>
   </footer>
 
 </body>
 </html>
+
